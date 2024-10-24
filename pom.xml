@@ -14,23 +14,25 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.adobe.aem.guides</groupId>
     <artifactId>aem-guides-wknd</artifactId>
     <packaging>pom</packaging>
     <version>3.2.1-SNAPSHOT</version>
-     <name>WKND Sites Project - Reactor Project</name>
+    <name>WKND Sites Project - Reactor Project</name>
     <description>WKND Sites Project</description>
     <url>https://github.com/adobe/aem-guides-wknd</url>
     <inceptionYear>2019</inceptionYear>
 
     <licenses>
-		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
-		</license>
-	</licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
 
     <modules>
         <module>all</module>
@@ -48,7 +50,7 @@
 
     <properties>
         <aem.host>localhost</aem.host>
-        <aem.port>4502</aem.port>
+        <aem.port>4504</aem.port>
         <aem.publish.host>localhost</aem.publish.host>
         <aem.publish.port>4503</aem.publish.port>
         <sling.user>admin</sling.user>
@@ -73,7 +75,7 @@
         <url>http://www.adobe.com/</url>
     </organization>
 
-     <developers>
+    <developers>
         <developer>
             <id>aem-guides-wknd</id>
             <organization>Adobe</organization>
@@ -82,7 +84,7 @@
         </developer>
     </developers>
 
-     <scm>
+    <scm>
         <connection>scm:git:https://github.com/adobe/aem-guides-wknd.git</connection>
         <developerConnection>scm:git:https://github.com/adobe/aem-guides-wknd.git</developerConnection>
         <url>https://github.com/adobe/aem-guides-wknd/tree/main</url>
@@ -128,10 +130,10 @@
                 </configuration>
                 <executions>
                     <execution>
-                    <id>attach-javadocs</id>
-                    <goals>
-                        <goal>jar</goal>
-                    </goals>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -330,15 +332,17 @@ Bundle-DocURL:
                         <validatorsSettings>
                             <jackrabbit-nodetypes>
                                 <options>
-                                    <!-- use the nodetypes and namespaces from the aem-nodetypes.jar provided in the plugin dependencies -->
+                                    <!-- use the nodetypes and namespaces from the aem-nodetypes.jar
+                                    provided in the plugin dependencies -->
                                     <cnds>tccl:aem.cnd</cnds>
                                 </options>
                             </jackrabbit-nodetypes>
                             <netcentric-aem-replication-metadata>
                                 <options>
-                                    <agentNames>publish,preview</agentNames><!-- default value is publish only  -->
+                                    <agentNames>publish,preview</agentNames><!-- default value is
+                                    publish only  -->
                                 </options>
-                             </netcentric-aem-replication-metadata>
+                            </netcentric-aem-replication-metadata>
                         </validatorsSettings>
                     </configuration>
                     <dependencies>
@@ -391,7 +395,8 @@ Bundle-DocURL:
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
-                <!--This plugin's configuration is used to store Eclipse
+                <!--This
+                plugin's configuration is used to store Eclipse
                     m2e settings only. It has no influence on the Maven build itself. -->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
@@ -576,7 +581,8 @@ Bundle-DocURL:
                                         <goal>install</goal>
                                     </goals>
                                     <configuration>
-                                        <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+                                        <targetURL>
+                                            http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -616,7 +622,8 @@ Bundle-DocURL:
                                         <goal>install</goal>
                                     </goals>
                                     <configuration>
-                                        <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+                                        <targetURL>
+                                            http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -687,7 +694,8 @@ Bundle-DocURL:
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <!-- manually release in https://oss.sonatype.org/#stagingRepositories after the Maven release build -->
+                            <!-- manually release in https://oss.sonatype.org/#stagingRepositories
+                            after the Maven release build -->
                             <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
@@ -697,9 +705,9 @@ Bundle-DocURL:
         <profile>
             <id>cm-java-11</id>
             <activation>
-                  <property>
-                        <name>env.CM_BUILD</name>
-                  </property>
+                <property>
+                    <name>env.CM_BUILD</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -736,7 +744,7 @@ Bundle-DocURL:
     <dependencyManagement>
         <dependencies>
 
-        <!-- AEM as a Cloud Service SDK -->
+            <!-- AEM as a Cloud Service SDK -->
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-sdk-api</artifactId>
@@ -744,7 +752,7 @@ Bundle-DocURL:
                 <scope>provided</scope>
             </dependency>
 
-             <!-- AEM Core Components -->
+            <!-- AEM Core Components -->
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.core</artifactId>
